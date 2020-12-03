@@ -1,6 +1,8 @@
 # <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/newspaper.svg' card_color='#000000' width='50' height='50' style='vertical-align:bottom'/> Latest news
 Listen to the latest news report from your favorite broadcast
 
+# NOTE: this fork includes catalan news, once the official mycroft skill is updated this will be deleted!
+
 ## About
 Play the latest news from an RSS audio feed. Your device location will be used to provide a local feed from your country if available. Otherwise, the National Public Radio (NPR)
 Hourly News will be used. You can also choose your own default or add a custom audio feed at: [home.mycroft.ai](https://home.mycroft.ai/#/skill).
