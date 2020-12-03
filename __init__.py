@@ -178,7 +178,7 @@ class NewsSkill(CommonPlaySkill):
     def __init__(self):
         super().__init__(name="NewsSkill")
         if "use_curl" not in self.settings:
-            self.settings["use_curl"] = True
+            self.settings["use_curl"] = False
         self.curl = None
         self.now_playing = None
         self.last_message = None
