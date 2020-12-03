@@ -38,6 +38,10 @@ Play the latest news from an RSS audio feed. Your device location will be used t
 Hourly News will be used. You can also choose your own default or add a custom audio feed at: [home.mycroft.ai](https://home.mycroft.ai/#/skill).
 
 Supported stations include:
+
+- [ES] RNE Radio Nacional de España
+- [ES] CCMA Catalunya Informació
+- [PT] TSF Rádio Notícias
 - Associated Press (AP) Hourly Radio News
 - [AU] ABC News Australia
 - [BE] VRT Nieuws
@@ -50,7 +54,6 @@ Supported stations include:
 - [US] Fox News
 - [US] NPR News Now
 - [US] PBS NewsHour
-- [ES] CCMA Catalunya Informació
 
 ## Examples
 * "Play the news"
