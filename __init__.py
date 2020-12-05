@@ -33,6 +33,7 @@ from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
 from mycroft.util import get_cache_directory, LOG
 from mycroft.util.parse import fuzzy_match
 from mycroft.util.time import now_local
+from mycroft.configuration import LocalConf, USER_CONFIG
 
 from .stations.abc import abc
 
@@ -192,6 +193,34 @@ class NewsSkill(CommonPlaySkill):
         self.default_feed = self.translate_namedvalues('country.default')
         # Longer titles or alternative common names of feeds for searching
         self.alt_feed_names = self.translate_namedvalues('alt.feed.name')
+        self.blacklist_default_skill()
+
+    def blacklist_default_skill(self):
+        # load the current list of already blacklisted skills
+        blacklist = self.config_core["skills"]["blacklisted_skills"]
+
+        # check the folder name (skill_id) of the skill you want to replace
+        skill_id = "mycroft-npr-news.mycroftai"
+
+        # add the skill to the blacklist
+        if skill_id not in blacklist:
+            self.log.debug("Blacklisting official mycroft skill")
+            blacklist.append(skill_id)
+
+            # load the user config file (~/.mycroft/mycroft.conf)
+            conf = LocalConf(USER_CONFIG)
+            if "skills" not in conf:
+                conf["skills"] = {}
+
+            # update the blacklist field
+            conf["skills"]["blacklisted_skills"] = blacklist
+
+            # save the user config file
+            conf.store()
+
+        # tell the intent service to unload the skill in case it was loaded already
+        # this should avoid the need to restart
+        self.bus.emit(Message("detach_skill", {"skill_id": skill_id}))
 
     def CPS_match_query_phrase(self, phrase):
         matched_feed = {'key': None, 'conf': 0.0}
