@@ -5,7 +5,7 @@ Listen to the latest news report from your favorite broadcast
 
 Due to a backend issue the PR for this skill has been blocked in mycroft repositories, it also includes some bug fixes, read more [here](https://github.com/MycroftAI/skill-npr-news/pull/102)
 
-If you are using this skill, you have to [disable the official skill](https://mycroft-ai.gitbook.io/docs/skill-development/faq#how-do-i-disable-a-skill) because they are incompatible
+If you are using this skill, you have to [disable the official skill](https://mycroft-ai.gitbook.io/docs/skill-development/faq#how-do-i-disable-a-skill) because they are incompatible, this will be done automatically for you
 
 To play https streams properly you also need to install vlc
 
